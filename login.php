@@ -201,7 +201,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="mt-8 text-gray-600 font-semibold">
             <?php echo $L['no_account']; ?> <a href="signup.php" class="red-link"><?php echo $L['signup']; ?></a>
-             <span class="mx-2">|</span>
+             <span class="mx-2"> </span>
                 <a href="privacy.php" class="text-xs text-gray-400 hover:underline"><?php echo ($_SESSION['lang'] == 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'); ?></a>
         </div>
         
