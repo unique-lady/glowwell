@@ -155,6 +155,8 @@ $static = [
 <html lang="<?php echo $user_lang == 'ar' ? 'ar' : 'en'; ?>" dir="<?php echo $lang['dir']; ?>">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="موقع GlowWell - رفيقك الأول للتمارين، الوجبات الصحية، وتتبع سعراتك بكل سهولة وتوهج.">
+<meta name="keywords" content="GlowWell, قلو ويل, قلوويل, تمارين رياضية, وجبات صحية, سعرات حرارية">
     <title>GlowWell — AI Workouts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>

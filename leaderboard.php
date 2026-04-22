@@ -17,6 +17,8 @@ $top_users = mysqli_query($conn, "SELECT id, fullname, glow_coins FROM users ORD
 <html lang="<?php echo $user_lang; ?>" dir="<?php echo $lang['dir'] ?? 'ltr'; ?>">
 <head>
     <title>GlowWell - <?php echo $lang['leaderboard'] ?? 'Leaderboard'; ?></title>
+    <meta name="description" content="موقع GlowWell - رفيقك الأول للتمارين، الوجبات الصحية، وتتبع سعراتك بكل سهولة وتوهج.">
+<meta name="keywords" content="GlowWell, قلو ويل, قلوويل, تمارين رياضية, وجبات صحية, سعرات حرارية">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <style>

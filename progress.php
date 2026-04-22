@@ -56,6 +56,8 @@ $days_data = array_reverse($days_data);
 <html lang="<?php echo $current_lang; ?>" dir="<?php echo $lang['dir']; ?>">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="موقع GlowWell - رفيقك الأول للتمارين، الوجبات الصحية، وتتبع سعراتك بكل سهولة وتوهج.">
+<meta name="keywords" content="GlowWell, قلو ويل, قلوويل, تمارين رياضية, وجبات صحية, سعرات حرارية">
     <title>GlowWell | <?php echo $lang['progress']; ?></title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">

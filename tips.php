@@ -49,6 +49,8 @@ $display_goal = ($current_lang == 'ar' && isset($goal_ar[$goal])) ? $goal_ar[$go
 <html lang="<?php echo $current_lang; ?>" dir="<?php echo $dir; ?>">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="موقع GlowWell - رفيقك الأول للتمارين، الوجبات الصحية، وتتبع سعراتك بكل سهولة وتوهج.">
+<meta name="keywords" content="GlowWell, قلو ويل, قلوويل, تمارين رياضية, وجبات صحية, سعرات حرارية">
     <title>GlowWell | Health Tips ✨</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">

@@ -95,6 +95,8 @@ for ($i = 1; $i <= 30; $i++) {
 <html lang="<?php echo $user_lang == 'ar' ? 'ar' : 'en'; ?>" dir="<?php echo $lang['dir']; ?>">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="موقع GlowWell - رفيقك الأول للتمارين، الوجبات الصحية، وتتبع سعراتك بكل سهولة وتوهج.">
+<meta name="keywords" content="GlowWell, قلو ويل, قلوويل, تمارين رياضية, وجبات صحية, سعرات حرارية">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>30-Day Glow & Burn Plan</title>
     <script src="https://cdn.tailwindcss.com"></script>

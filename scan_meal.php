@@ -13,6 +13,8 @@ $cv_scan_url = $cv_base . '/';
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="موقع GlowWell - رفيقك الأول للتمارين، الوجبات الصحية، وتتبع سعراتك بكل سهولة وتوهج.">
+<meta name="keywords" content="GlowWell, قلو ويل, قلوويل, تمارين رياضية, وجبات صحية, سعرات حرارية">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GlowWell — مسح الوجبة (AI)</title>
     <script src="https://cdn.tailwindcss.com"></script>

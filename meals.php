@@ -143,6 +143,8 @@ function get_circle_data($current, $target) {
 <html lang="<?php echo $user_lang; ?>" dir="<?php echo $lang['dir'] ?? 'ltr'; ?>">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="موقع GlowWell - رفيقك الأول للتمارين، الوجبات الصحية، وتتبع سعراتك بكل سهولة وتوهج.">
+<meta name="keywords" content="GlowWell, قلو ويل, قلوويل, تمارين رياضية, وجبات صحية, سعرات حرارية">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>GlowWell - <?php echo $lang['meals'] ?? 'Meals'; ?></title>
     <script src="https://cdn.tailwindcss.com"></script>

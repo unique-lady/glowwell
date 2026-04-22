@@ -30,6 +30,8 @@ $challenges = mysqli_query($conn, "SELECT * FROM challenges");
 <html lang="<?php echo $user_lang; ?>" dir="<?php echo $lang['dir'] ?? 'ltr'; ?>">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="موقع GlowWell - رفيقك الأول للتمارين، الوجبات الصحية، وتتبع سعراتك بكل سهولة وتوهج.">
+<meta name="keywords" content="GlowWell, قلو ويل, قلوويل, تمارين رياضية, وجبات صحية, سعرات حرارية">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GlowWell - <?php echo $lang['challenges_arena'] ?? 'Challenges Arena'; ?></title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">

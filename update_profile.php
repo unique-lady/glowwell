@@ -37,6 +37,8 @@ if (isset($_POST['save_profile'])) {
 <html lang="<?php echo isset($lang['dir']) && $lang['dir'] == 'rtl' ? 'ar' : 'en'; ?>" dir="<?php echo $lang['dir'] ?? 'ltr'; ?>">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="موقع GlowWell - رفيقك الأول للتمارين، الوجبات الصحية، وتتبع سعراتك بكل سهولة وتوهج.">
+<meta name="keywords" content="GlowWell, قلو ويل, قلوويل, تمارين رياضية, وجبات صحية, سعرات حرارية">
     <title><?php echo $lang['update_profile_title'] ?? 'Update Profile'; ?> - GlowWell</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
