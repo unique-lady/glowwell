@@ -206,6 +206,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         
     </div>
+    
+    <div class="w-full text-center mt-12 pb-10">
+    <p class="text-gray-400 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase leading-relaxed">
+        &copy; 2026 
+        <span style="color: #ed4b9e;">Glow</span><span style="color: #2ecc71;">Well</span>. 
+        <span class="block md:inline mt-1 md:mt-0">
+            <?php echo ($_SESSION['lang'] == 'ar' ? 'جميع الحقوق محفوظة لرحلتك' : 'All Rights Reserved to Your Journey'); ?>
+        </span>
+    </p>
+</div>
+
 
     <script>
         lucide.createIcons();
