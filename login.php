@@ -205,9 +205,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <a href="privacy.php" class="text-xs text-gray-400 hover:underline"><?php echo ($_SESSION['lang'] == 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'); ?></a>
         </div>
         
-    </div>
-    
-    <div class="w-full text-center mt-12 pb-10">
+        
+        <div class="w-full text-center mt-12 pb-10">
     <p class="text-gray-400 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase leading-relaxed">
         &copy; 2026 
         <span style="color: #ed4b9e;">Glow</span><span style="color: #2ecc71;">Well</span>. 
@@ -216,6 +215,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </span>
     </p>
 </div>
+
+
+
+        
+    </div>
+    
 
 
     <script>
