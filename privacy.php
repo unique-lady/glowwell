@@ -33,6 +33,10 @@ $t = $texts[$lang];
 <html lang="<?php echo $lang; ?>" dir="<?php echo $dir; ?>">
 <head>
     <meta charset="UTF-8">
+          <meta name="google-site-verification" content="4dTnDTgjrojMCWcHOrFIo0KfdwGl_-rFe9niSKmYO3k" />
+    <meta name="description" content="موقع GlowWell - رفيقك الأول للتمارين، الوجبات الصحية، وتتبع سعراتك بكل سهولة وتوهج.">
+<meta name="keywords" content="GlowWell, قلو ويل, قلوويل, تمارين رياضية, وجبات صحية, سعرات حرارية">
+ 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $t['title']; ?> - GlowWell</title>
     <script src="https://cdn.tailwindcss.com"></script>
