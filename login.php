@@ -231,9 +231,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     </script>
     
-    <footer class="mt-8 pb-6 text-center text-gray-400 text-xs font-semibold uppercase tracking-widest">
-    &copy; 2026 GlowWell. All Rights Reserved.
-</footer>
+  
 
 </body>
 </html>
