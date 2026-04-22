@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تعرف على الوجبات</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container py-3">
+        <header class="text-center mb-4">
+            <div class="d-flex justify-content-end gap-2 mb-2">
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="langAr" data-lang="ar">عربي</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="langEn" data-lang="en">English</button>
+            </div>
+            <h1 class="app-title display-6"><span data-i18n="title">تعرف على </span><span class="accent" data-i18n="title_accent">الوجبات</span></h1>
+            <p class="app-subtitle mb-0" data-i18n="subtitle">ارفع صورة أو التقط من الكاميرا لمعرفة المحتوى والسعرات والمغذيات</p>
+        </header>
+
+        <form id="mainForm" method="POST" enctype="multipart/form-data" class="card input-card shadow-sm mb-4">
+            <div class="card-body p-3 p-md-4">
+                <label class="form-label text-muted small" data-i18n="image_source">مصدر الصورة</label>
+                <ul class="nav nav-pills source-tabs gap-1 mb-3" role="tablist">
+                    <li class="nav-item">
+                        <input type="radio" class="d-none" name="source" id="srcFile" value="file" checked>
+                        <label class="nav-link py-2 px-3 mb-0 active" for="srcFile" id="tabFile" data-i18n="upload_file">رفع من الملف</label>
+                    </li>
+                    <li class="nav-item">
+                        <input type="radio" class="d-none" name="source" id="srcCamera" value="camera">
+                        <label class="nav-link py-2 px-3 mb-0" for="srcCamera" id="tabCamera" data-i18n="from_camera">التصوير من الكاميرا</label>
+                    </li>
+                </ul>
+
+                <div id="fileSource" class="input-source d-block">
+                    <input type="file" name="image" id="fileInput" accept="image/*" class="form-control file-input-custom">
+                </div>
+                <div id="cameraSource" class="input-source d-none">
+                    <video id="cameraVideo" class="camera-video w-100 mb-2" autoplay playsinline muted></video>
+                    <button type="button" id="captureBtn" class="btn btn-primary btn-sm" data-i18n="capture_btn">التقاط صورة</button>
+                    <img id="capturePreview" class="capture-preview-img d-block mt-2" alt="معاينة">
+                    <input type="file" name="image" id="cameraFileInput" accept="image/*" class="d-none">
+                </div>
+
+                <div class="mt-3">
+                    <label class="form-label text-muted small" data-i18n="analysis_type">نوع التحليل</label>
+                    <div class="d-flex flex-wrap gap-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="mode" value="meals" id="modeMeals" {% if not mode or mode == 'meals' %}checked{% endif %}>
+                            <label class="form-check-label" for="modeMeals" data-i18n="mode_meals">تعرف على الوجبات (سعرات ومغذيات)</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="mode" value="text" id="modeText" {% if mode == 'text' %}checked{% endif %}>
+                            <label class="form-check-label" for="modeText" data-i18n="mode_ocr">استخراج النص (OCR)</label>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-analysis mt-3" data-i18n="analyze_btn">تحليل الصورة</button>
+            </div>
+        </form>
+
+        {% if meal_error and not image_base64 %}
+            <div class="alert alert-danger alert-custom" role="alert">{{ meal_error }}</div>
+        {% endif %}
+
+        {% if image_base64 %}
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="card result-card h-100">
+                    <div class="card-body p-3">
+                        <h2 class="card-title" data-i18n="image_and_content">الصورة ومحتواها</h2>
+                        <div class="text-center mb-2">
+                            <img src="data:{{ image_mimetype|default('image/jpeg') }};base64,{{ image_base64 }}" alt="الصورة" class="img-preview-result img-fluid" id="resultImgAlt">
+                        </div>
+                        {% if mode == 'meals' and raw_vision_labels %}
+                            <p class="small text-muted mb-1" data-i18n="vision_detected">ما اكتشفه Vision:</p>
+                            <div class="d-flex flex-wrap gap-1">
+                                {% for name in raw_vision_labels %}
+                                <span class="tag-pill">{{ name }}</span>
+                                {% endfor %}
+                            </div>
+                        {% elif mode == 'text' %}
+                            <p class="small text-muted mb-0" data-i18n="mode_ocr_label">وضع التحليل: استخراج النص (OCR)</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card result-card h-100">
+                    <div class="card-body p-3">
+                        <h2 class="card-title" data-i18n="output_title">المخرجات (السعرات والمغذيات)</h2>
+                        {% if mode == 'meals' %}
+                            <p class="small text-muted mb-2" data-i18n="matched_items">الأصناف المطابقة مع قاعدة المغذيات:</p>
+                            {% if meals %}
+                                <ul class="list-unstyled mb-0">
+                                    {% for m in meals %}
+                                    <li class="meal-item d-flex justify-content-between align-items-center flex-wrap">
+                                        <span class="meal-name">{{ m.nameAr }} ({{ m.nameEn }})</span>
+                                        <span class="meal-meta meal-meta-i18n" data-cal="{{ m.calories }}" data-protein="{{ m.protein }}" data-carbs="{{ m.carbs }}" data-fat="{{ m.fat }}" data-grams="{{ m.estimatedGrams }}">~{{ m.estimatedGrams }} غ · {{ m.calories }} سعرة · بروتين {{ m.protein }}غ · كارب {{ m.carbs }}غ · دهون {{ m.fat }}غ</span>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                                <div class="totals-box row g-2 small">
+                                    <div class="col-6"><span data-i18n="total">المجموع</span>: <span class="total-value">{{ total_calories }}</span> <span class="cal-unit" data-i18n="cal_unit">سعرة</span></div>
+                                    <div class="col-6"><span data-i18n="protein">بروتين</span>: <span class="total-value">{{ total_protein }}</span> <span class="gram-unit" data-i18n="gram_unit">غ</span></div>
+                                    <div class="col-6"><span data-i18n="carbs">كربوهيدرات</span>: <span class="total-value">{{ total_carbs }}</span> <span class="gram-unit" data-i18n="gram_unit">غ</span></div>
+                                    <div class="col-6"><span data-i18n="fat">دهون</span>: <span class="total-value">{{ total_fat }}</span> <span class="gram-unit" data-i18n="gram_unit">غ</span></div>
+                                </div>
+                            {% else %}
+                                <p class="text-muted small mb-0" data-i18n="no_matched">لا توجد أصناف مطابقة من قاعدة المغذيات.</p>
+                                {% if meal_error %}<div class="alert alert-danger alert-custom mt-2 py-2 small">{{ meal_error }}</div>{% endif %}
+                            {% endif %}
+                        {% endif %}
+                        {% if mode == 'text' %}
+                            {% if text %}
+                                <textarea class="form-control ocr-textarea" readonly>{{ text }}</textarea>
+                                <a href="{{ url_for('download_file') }}?text={{ text|urlencode }}" class="btn btn-download btn-sm mt-2" data-i18n="download_text">تحميل النص</a>
+                            {% else %}
+                                <p class="text-muted small mb-0" data-i18n="no_text_extracted">لم يُستخرج أي نص.</p>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <p class="text-center api-note" data-i18n="api_note">
+            <strong>Google Vision API</strong> — يوجد حد مجاني شهري (حوالي 1000 طلب)، وبعدها الخدمة مدفوعة.
+        </p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/i18n-scan.js') }}"></script>
+    <script>
+        window.GW_SCAN_UPDATE_SWITCHER = function() {
+            var lang = window.GW_SCAN_LANG;
+            document.getElementById('langAr').classList.toggle('active', lang === 'ar');
+            document.getElementById('langEn').classList.toggle('active', lang === 'en');
+        };
+        document.getElementById('langAr').addEventListener('click', function() { window.GW_SCAN_SET_LANG('ar'); });
+        document.getElementById('langEn').addEventListener('click', function() { window.GW_SCAN_SET_LANG('en'); });
+        document.addEventListener('DOMContentLoaded', function() {
+            window.GW_SCAN_APPLY();
+        });
+    </script>
+    <script>
+        function updateSourceTabs() {
+            document.getElementById('tabFile').classList.toggle('active', document.getElementById('srcFile').checked);
+            document.getElementById('tabCamera').classList.toggle('active', document.getElementById('srcCamera').checked);
+        }
+        document.getElementById('srcFile').addEventListener('change', updateSourceTabs);
+        document.getElementById('srcCamera').addEventListener('change', updateSourceTabs);
+    </script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

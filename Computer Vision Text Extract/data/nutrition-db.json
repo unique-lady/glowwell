@@ -1,0 +1,342 @@
+{
+  "foods": [
+    {
+      "id": "chicken",
+      "nameAr": "دجاج",
+      "nameEn": "Chicken",
+      "proteinPer100g": 26,
+      "carbsPer100g": 0,
+      "fatPer100g": 3.6,
+      "caloriesPer100g": 165
+    },
+    {
+      "id": "rice",
+      "nameAr": "أرز",
+      "nameEn": "Rice",
+      "proteinPer100g": 2.7,
+      "carbsPer100g": 28,
+      "fatPer100g": 0.3,
+      "caloriesPer100g": 130
+    },
+    {
+      "id": "beef",
+      "nameAr": "لحم بقري",
+      "nameEn": "Beef",
+      "proteinPer100g": 26,
+      "carbsPer100g": 0,
+      "fatPer100g": 15,
+      "caloriesPer100g": 250
+    },
+    {
+      "id": "fish",
+      "nameAr": "سمك",
+      "nameEn": "Fish",
+      "proteinPer100g": 22,
+      "carbsPer100g": 0,
+      "fatPer100g": 1.3,
+      "caloriesPer100g": 100
+    },
+    {
+      "id": "bread",
+      "nameAr": "خبز",
+      "nameEn": "Bread",
+      "proteinPer100g": 9,
+      "carbsPer100g": 49,
+      "fatPer100g": 1.5,
+      "caloriesPer100g": 265
+    },
+    {
+      "id": "egg",
+      "nameAr": "بيضة",
+      "nameEn": "Egg",
+      "proteinPer100g": 13,
+      "carbsPer100g": 1.1,
+      "fatPer100g": 11,
+      "caloriesPer100g": 155
+    },
+    {
+      "id": "salad",
+      "nameAr": "سلطة",
+      "nameEn": "Salad",
+      "proteinPer100g": 1.2,
+      "carbsPer100g": 3.6,
+      "fatPer100g": 0.3,
+      "caloriesPer100g": 20
+    },
+    {
+      "id": "potato",
+      "nameAr": "بطاطا",
+      "nameEn": "Potato",
+      "proteinPer100g": 2,
+      "carbsPer100g": 17,
+      "fatPer100g": 0.1,
+      "caloriesPer100g": 77
+    },
+    {
+      "id": "pasta",
+      "nameAr": "معكرونة",
+      "nameEn": "Pasta",
+      "proteinPer100g": 13,
+      "carbsPer100g": 75,
+      "fatPer100g": 1.1,
+      "caloriesPer100g": 371
+    },
+    {
+      "id": "cheese",
+      "nameAr": "جبن",
+      "nameEn": "Cheese",
+      "proteinPer100g": 25,
+      "carbsPer100g": 1.3,
+      "fatPer100g": 33,
+      "caloriesPer100g": 402
+    },
+    {
+      "id": "tomato",
+      "nameAr": "طماطم",
+      "nameEn": "Tomato",
+      "proteinPer100g": 0.9,
+      "carbsPer100g": 3.9,
+      "fatPer100g": 0.2,
+      "caloriesPer100g": 18
+    },
+    {
+      "id": "cucumber",
+      "nameAr": "خيار",
+      "nameEn": "Cucumber",
+      "proteinPer100g": 0.7,
+      "carbsPer100g": 3.6,
+      "fatPer100g": 0.1,
+      "caloriesPer100g": 16
+    },
+    {
+      "id": "lentils",
+      "nameAr": "عدس",
+      "nameEn": "Lentils",
+      "proteinPer100g": 25,
+      "carbsPer100g": 60,
+      "fatPer100g": 0.4,
+      "caloriesPer100g": 353
+    },
+    {
+      "id": "hummus",
+      "nameAr": "حمص",
+      "nameEn": "Hummus",
+      "proteinPer100g": 8,
+      "carbsPer100g": 14,
+      "fatPer100g": 5,
+      "caloriesPer100g": 119
+    },
+    {
+      "id": "falafel",
+      "nameAr": "فلافل",
+      "nameEn": "Falafel",
+      "proteinPer100g": 12,
+      "carbsPer100g": 35,
+      "fatPer100g": 18,
+      "caloriesPer100g": 333
+    },
+    {
+      "id": "beans",
+      "nameAr": "فاصوليا",
+      "nameEn": "Beans",
+      "proteinPer100g": 8.7,
+      "carbsPer100g": 27,
+      "fatPer100g": 0.4,
+      "caloriesPer100g": 127
+    },
+    {
+      "id": "yogurt",
+      "nameAr": "زبادي",
+      "nameEn": "Yogurt",
+      "proteinPer100g": 3.5,
+      "carbsPer100g": 4.7,
+      "fatPer100g": 0.4,
+      "caloriesPer100g": 59
+    },
+    {
+      "id": "broccoli",
+      "nameAr": "بروكلي",
+      "nameEn": "Broccoli",
+      "proteinPer100g": 2.8,
+      "carbsPer100g": 7,
+      "fatPer100g": 0.4,
+      "caloriesPer100g": 34
+    },
+    {
+      "id": "cauliflower",
+      "nameAr": "قرنبيط",
+      "nameEn": "Cauliflower",
+      "proteinPer100g": 1.9,
+      "carbsPer100g": 5,
+      "fatPer100g": 0.3,
+      "caloriesPer100g": 25
+    },
+    {
+      "id": "carrot",
+      "nameAr": "جزر",
+      "nameEn": "Carrot",
+      "proteinPer100g": 0.9,
+      "carbsPer100g": 10,
+      "fatPer100g": 0.2,
+      "caloriesPer100g": 41
+    },
+    {
+      "id": "milk",
+      "nameAr": "حليب",
+      "nameEn": "Milk",
+      "proteinPer100g": 3.2,
+      "carbsPer100g": 4.8,
+      "fatPer100g": 3.3,
+      "caloriesPer100g": 61
+    },
+    {
+      "id": "olive_oil",
+      "nameAr": "زيت الزيتون",
+      "nameEn": "Olive Oil",
+      "proteinPer100g": 0,
+      "carbsPer100g": 0,
+      "fatPer100g": 100,
+      "caloriesPer100g": 884
+    },
+    {
+      "id": "apple",
+      "nameAr": "تفاح",
+      "nameEn": "Apple",
+      "proteinPer100g": 0.3,
+      "carbsPer100g": 14,
+      "fatPer100g": 0.2,
+      "caloriesPer100g": 52
+    },
+    {
+      "id": "banana",
+      "nameAr": "موز",
+      "nameEn": "Banana",
+      "proteinPer100g": 1.1,
+      "carbsPer100g": 27,
+      "fatPer100g": 0.3,
+      "caloriesPer100g": 89
+    },
+    {
+      "id": "orange",
+      "nameAr": "برتقال",
+      "nameEn": "Orange",
+      "proteinPer100g": 0.7,
+      "carbsPer100g": 12,
+      "fatPer100g": 0.1,
+      "caloriesPer100g": 47
+    },
+    {
+      "id": "soup",
+      "nameAr": "شوربة",
+      "nameEn": "Soup",
+      "proteinPer100g": 2.5,
+      "carbsPer100g": 6,
+      "fatPer100g": 0.8,
+      "caloriesPer100g": 42
+    },
+    {
+      "id": "sauce",
+      "nameAr": "صلصة",
+      "nameEn": "Sauce",
+      "proteinPer100g": 1.5,
+      "carbsPer100g": 8,
+      "fatPer100g": 12,
+      "caloriesPer100g": 140
+    },
+    {
+      "id": "raita",
+      "nameAr": "رايته",
+      "nameEn": "Raita",
+      "proteinPer100g": 2,
+      "carbsPer100g": 4,
+      "fatPer100g": 1.5,
+      "caloriesPer100g": 38
+    },
+    {
+      "id": "onion",
+      "nameAr": "بصل",
+      "nameEn": "Onion",
+      "proteinPer100g": 1.1,
+      "carbsPer100g": 9,
+      "fatPer100g": 0.1,
+      "caloriesPer100g": 40
+    },
+    {
+      "id": "zucchini",
+      "nameAr": "كوسة",
+      "nameEn": "Zucchini",
+      "proteinPer100g": 1.2,
+      "carbsPer100g": 3.3,
+      "fatPer100g": 0.3,
+      "caloriesPer100g": 17
+    },
+    {
+      "id": "pepper",
+      "nameAr": "فلفل",
+      "nameEn": "Pepper",
+      "proteinPer100g": 1,
+      "carbsPer100g": 6,
+      "fatPer100g": 0.3,
+      "caloriesPer100g": 31
+    },
+    {
+      "id": "basmati",
+      "nameAr": "أرز بسمتي",
+      "nameEn": "Basmati rice",
+      "proteinPer100g": 3,
+      "carbsPer100g": 28,
+      "fatPer100g": 0.3,
+      "caloriesPer100g": 130
+    },
+    {"id": "grape", "nameAr": "عنب", "nameEn": "Grape", "proteinPer100g": 0.7, "carbsPer100g": 18, "fatPer100g": 0.2, "caloriesPer100g": 69},
+    {"id": "strawberry", "nameAr": "فراولة", "nameEn": "Strawberry", "proteinPer100g": 0.7, "carbsPer100g": 8, "fatPer100g": 0.3, "caloriesPer100g": 32},
+    {"id": "watermelon", "nameAr": "بطيخ", "nameEn": "Watermelon", "proteinPer100g": 0.6, "carbsPer100g": 8, "fatPer100g": 0.2, "caloriesPer100g": 30},
+    {"id": "lemon", "nameAr": "ليمون", "nameEn": "Lemon", "proteinPer100g": 1.1, "carbsPer100g": 9, "fatPer100g": 0.3, "caloriesPer100g": 29},
+    {"id": "lime", "nameAr": "ليمون حامض", "nameEn": "Lime", "proteinPer100g": 0.7, "carbsPer100g": 11, "fatPer100g": 0.2, "caloriesPer100g": 30},
+    {"id": "grapefruit", "nameAr": "جريب فروت", "nameEn": "Grapefruit", "proteinPer100g": 0.8, "carbsPer100g": 11, "fatPer100g": 0.1, "caloriesPer100g": 42},
+    {"id": "peach", "nameAr": "خوخ", "nameEn": "Peach", "proteinPer100g": 0.9, "carbsPer100g": 10, "fatPer100g": 0.3, "caloriesPer100g": 39},
+    {"id": "pear", "nameAr": "كمثرى", "nameEn": "Pear", "proteinPer100g": 0.4, "carbsPer100g": 15, "fatPer100g": 0.1, "caloriesPer100g": 57},
+    {"id": "plum", "nameAr": "برقوق", "nameEn": "Plum", "proteinPer100g": 0.7, "carbsPer100g": 11, "fatPer100g": 0.3, "caloriesPer100g": 46},
+    {"id": "apricot", "nameAr": "مشمش", "nameEn": "Apricot", "proteinPer100g": 1.4, "carbsPer100g": 11, "fatPer100g": 0.4, "caloriesPer100g": 48},
+    {"id": "cherry", "nameAr": "كرز", "nameEn": "Cherry", "proteinPer100g": 1, "carbsPer100g": 12, "fatPer100g": 0.3, "caloriesPer100g": 50},
+    {"id": "mango", "nameAr": "مانجو", "nameEn": "Mango", "proteinPer100g": 0.8, "carbsPer100g": 15, "fatPer100g": 0.4, "caloriesPer100g": 60},
+    {"id": "pineapple", "nameAr": "أناناس", "nameEn": "Pineapple", "proteinPer100g": 0.5, "carbsPer100g": 13, "fatPer100g": 0.1, "caloriesPer100g": 50},
+    {"id": "kiwi", "nameAr": "كيوي", "nameEn": "Kiwi", "proteinPer100g": 1.1, "carbsPer100g": 15, "fatPer100g": 0.5, "caloriesPer100g": 61},
+    {"id": "pomegranate", "nameAr": "رمان", "nameEn": "Pomegranate", "proteinPer100g": 1.7, "carbsPer100g": 19, "fatPer100g": 1.2, "caloriesPer100g": 83},
+    {"id": "fig", "nameAr": "تين", "nameEn": "Fig", "proteinPer100g": 0.8, "carbsPer100g": 19, "fatPer100g": 0.3, "caloriesPer100g": 74},
+    {"id": "date", "nameAr": "تمر", "nameEn": "Date", "proteinPer100g": 2.5, "carbsPer100g": 75, "fatPer100g": 0.4, "caloriesPer100g": 282},
+    {"id": "avocado", "nameAr": "أفوكادو", "nameEn": "Avocado", "proteinPer100g": 2, "carbsPer100g": 9, "fatPer100g": 15, "caloriesPer100g": 160},
+    {"id": "coconut", "nameAr": "جوز هند", "nameEn": "Coconut", "proteinPer100g": 3.3, "carbsPer100g": 15, "fatPer100g": 33, "caloriesPer100g": 354},
+    {"id": "blueberry", "nameAr": "توت أزرق", "nameEn": "Blueberry", "proteinPer100g": 0.7, "carbsPer100g": 14, "fatPer100g": 0.3, "caloriesPer100g": 57},
+    {"id": "raspberry", "nameAr": "توت العليق", "nameEn": "Raspberry", "proteinPer100g": 1.2, "carbsPer100g": 12, "fatPer100g": 0.7, "caloriesPer100g": 52},
+    {"id": "blackberry", "nameAr": "توت أسود", "nameEn": "Blackberry", "proteinPer100g": 1.4, "carbsPer100g": 10, "fatPer100g": 0.5, "caloriesPer100g": 43},
+    {"id": "cranberry", "nameAr": "توت بري", "nameEn": "Cranberry", "proteinPer100g": 0.4, "carbsPer100g": 12, "fatPer100g": 0.1, "caloriesPer100g": 46},
+    {"id": "papaya", "nameAr": "بابايا", "nameEn": "Papaya", "proteinPer100g": 0.5, "carbsPer100g": 11, "fatPer100g": 0.3, "caloriesPer100g": 43},
+    {"id": "melon", "nameAr": "شمام", "nameEn": "Melon", "proteinPer100g": 0.8, "carbsPer100g": 8, "fatPer100g": 0.2, "caloriesPer100g": 34},
+    {"id": "nectarine", "nameAr": "نكتارين", "nameEn": "Nectarine", "proteinPer100g": 1.1, "carbsPer100g": 11, "fatPer100g": 0.3, "caloriesPer100g": 44},
+    {"id": "tangerine", "nameAr": "يوسفي", "nameEn": "Tangerine", "proteinPer100g": 0.8, "carbsPer100g": 13, "fatPer100g": 0.3, "caloriesPer100g": 53},
+    {"id": "guava", "nameAr": "جوافة", "nameEn": "Guava", "proteinPer100g": 2.6, "carbsPer100g": 14, "fatPer100g": 1, "caloriesPer100g": 68},
+    {"id": "lettuce", "nameAr": "خس", "nameEn": "Lettuce", "proteinPer100g": 1.4, "carbsPer100g": 2.9, "fatPer100g": 0.2, "caloriesPer100g": 15},
+    {"id": "spinach", "nameAr": "سبانخ", "nameEn": "Spinach", "proteinPer100g": 2.9, "carbsPer100g": 3.6, "fatPer100g": 0.4, "caloriesPer100g": 23},
+    {"id": "kale", "nameAr": "كرنب مجعد", "nameEn": "Kale", "proteinPer100g": 2.9, "carbsPer100g": 4.4, "fatPer100g": 1.5, "caloriesPer100g": 35},
+    {"id": "cabbage", "nameAr": "ملفوف", "nameEn": "Cabbage", "proteinPer100g": 1.3, "carbsPer100g": 6, "fatPer100g": 0.1, "caloriesPer100g": 25},
+    {"id": "eggplant", "nameAr": "باذنجان", "nameEn": "Eggplant", "proteinPer100g": 1, "carbsPer100g": 6, "fatPer100g": 0.2, "caloriesPer100g": 25},
+    {"id": "garlic", "nameAr": "ثوم", "nameEn": "Garlic", "proteinPer100g": 6.4, "carbsPer100g": 33, "fatPer100g": 0.5, "caloriesPer100g": 149},
+    {"id": "ginger", "nameAr": "زنجبيل", "nameEn": "Ginger", "proteinPer100g": 1.8, "carbsPer100g": 18, "fatPer100g": 0.8, "caloriesPer100g": 80},
+    {"id": "celery", "nameAr": "كرفس", "nameEn": "Celery", "proteinPer100g": 0.7, "carbsPer100g": 3, "fatPer100g": 0.2, "caloriesPer100g": 14},
+    {"id": "asparagus", "nameAr": "هليون", "nameEn": "Asparagus", "proteinPer100g": 2.2, "carbsPer100g": 3.9, "fatPer100g": 0.1, "caloriesPer100g": 20},
+    {"id": "green_beans", "nameAr": "فاصوليا خضراء", "nameEn": "Green beans", "proteinPer100g": 1.8, "carbsPer100g": 7, "fatPer100g": 0.1, "caloriesPer100g": 31},
+    {"id": "peas", "nameAr": "بازلاء", "nameEn": "Peas", "proteinPer100g": 5.4, "carbsPer100g": 14, "fatPer100g": 0.4, "caloriesPer100g": 81},
+    {"id": "corn", "nameAr": "ذرة", "nameEn": "Corn", "proteinPer100g": 3.3, "carbsPer100g": 21, "fatPer100g": 1.2, "caloriesPer100g": 86},
+    {"id": "sweet_potato", "nameAr": "بطاطا حلوة", "nameEn": "Sweet potato", "proteinPer100g": 1.6, "carbsPer100g": 20, "fatPer100g": 0.1, "caloriesPer100g": 86},
+    {"id": "pumpkin", "nameAr": "قرع", "nameEn": "Pumpkin", "proteinPer100g": 1, "carbsPer100g": 7, "fatPer100g": 0.1, "caloriesPer100g": 26},
+    {"id": "beet", "nameAr": "شمندر", "nameEn": "Beet", "proteinPer100g": 1.6, "carbsPer100g": 10, "fatPer100g": 0.2, "caloriesPer100g": 43},
+    {"id": "radish", "nameAr": "فجل", "nameEn": "Radish", "proteinPer100g": 0.7, "carbsPer100g": 3.4, "fatPer100g": 0.1, "caloriesPer100g": 16},
+    {"id": "mushroom", "nameAr": "فطر", "nameEn": "Mushroom", "proteinPer100g": 3.1, "carbsPer100g": 3.3, "fatPer100g": 0.3, "caloriesPer100g": 22},
+    {"id": "okra", "nameAr": "بامية", "nameEn": "Okra", "proteinPer100g": 1.9, "carbsPer100g": 7, "fatPer100g": 0.2, "caloriesPer100g": 33},
+    {"id": "artichoke", "nameAr": "خرشوف", "nameEn": "Artichoke", "proteinPer100g": 3.3, "carbsPer100g": 11, "fatPer100g": 0.2, "caloriesPer100g": 47},
+    {"id": "leek", "nameAr": "كراث", "nameEn": "Leek", "proteinPer100g": 1.5, "carbsPer100g": 14, "fatPer100g": 0.3, "caloriesPer100g": 61},
+    {"id": "turnip", "nameAr": "لفت", "nameEn": "Turnip", "proteinPer100g": 0.9, "carbsPer100g": 6, "fatPer100g": 0.1, "caloriesPer100g": 28},
+    {"id": "arugula", "nameAr": "جرجير", "nameEn": "Arugula", "proteinPer100g": 2.6, "carbsPer100g": 3.7, "fatPer100g": 0.7, "caloriesPer100g": 25}
+  ]
+}

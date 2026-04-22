@@ -1,0 +1,22 @@
+body { box-sizing: border-box; font-family: 'Poppins', sans-serif; margin: 0; }
+.page-bg { background-color: #FCEEF4; min-height: 100vh; width: 100%; overflow-x: hidden; }
+
+/* Navbar */
+.navbar { background-color: #FFFFFF; height: 85px; border-bottom: 1px solid #EDEDED; }
+.nav-container { max-width: 1200px; margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; }
+.nav-left { display: flex; align-items: center; gap: 25px; }
+.profile-circle { width: 42px; height: 42px; background-color: #EC4D9C; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.nav-link { color: #222222; font-size: 14px; text-decoration: none; font-weight: 500; }
+.logo { font-size: 26px; font-weight: 700; }
+
+/* Main */
+.main-content { max-width: 1100px; margin: 0 auto; padding: 50px 40px; }
+.page-title { font-size: 38px; font-weight: 700; color: #1F1F1F; text-align: left; margin-bottom: 30px; }
+.form-card { background-color: #FFFFFF; border-radius: 20px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06); padding: 40px; }
+
+/* Inputs */
+.grid-row { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-bottom: 20px; }
+.form-label { display: block; color: #222222; font-size: 13px; font-weight: 600; margin-bottom: 8px; text-align: left; }
+.form-input, .form-select { width: 100%; height: 46px; background-color: #F5F5F5; border: 1px solid #E6E6E6; border-radius: 12px; padding: 0 16px; font-size: 14px; color: #1F1F1F; text-align: left; }
+.save-btn { background-color: #EC4D9C; color: white; padding: 12px 30px; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; transition: 0.3s; }
+.save-btn:hover { background-color: #D43D89; transform: translateY(-2px); }
