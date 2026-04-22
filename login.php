@@ -159,13 +159,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <form method="POST" class="space-y-6 text-left">
             <div>
                 <label class="block text-gray-700 font-bold mb-2"><?php echo $L['email_label']; ?></label>
-                <input type="email" name="email" class="w-full p-4 input-box rounded-2xl" placeholder="example@mail.com" required>
+                <input type="email" name="email" autocomplete="username"
+ class="w-full p-4 input-box rounded-2xl" placeholder="example@mail.com" required>
             </div>
 
             <div>
                 <label class="block text-gray-700 font-bold mb-2"><?php echo $L['pass_label']; ?></label>
                 <div class="relative flex items-center input-box rounded-2xl">
-                    <input type="password" name="password" id="loginPass" class="w-full p-4 bg-transparent outline-none pr-12" placeholder="••••••••" required>
+                    <input type="password" name="password" id="loginPass" autocomplete="current-password"
+ class="w-full p-4 bg-transparent outline-none pr-12" placeholder="••••••••" required>
                     <button type="button" onclick="toggle('loginPass', 'eyeIcon')" class="absolute right-5 focus:outline-none">
                         <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
