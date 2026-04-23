@@ -39,7 +39,6 @@
         <div class="flex justify-center gap-8 text-gray-400 font-semibold text-sm uppercase tracking-widest">
             <a href="privacy.php" class="hover:text-[#ed4b9e] transition-colors">Privacy Policy</a>
             <a href="about.php" class="hover:text-[#2ecc71] transition-colors">About Us</a>
-            <a href="contact.php" class="hover:text-gray-600 transition-colors">Contact</a>
         </div>
         <p class="mt-6 text-gray-400 text-xs">&copy; 2026 GlowWell Digital Health Platform. All Rights Reserved.</p>
     </footer>
