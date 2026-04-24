@@ -257,45 +257,60 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     </script>
     
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-messaging.js"></script>
-
 <script>
-    // تهيئة فايربيس بإصدار متوافق أكثر مع المتصفحات
-    const firebaseConfig = {
-        apiKey: "AIzaSyCI4EA4ZdYMeMNwtOfyFIHrk2bHbdKHYcs",
-        projectId: "glowwell-ac819",
-        messagingSenderId: "658820604328",
-        appId: "1:658820604328:web:c680a36e6af611e2b4fd9d"
-    };
-    
-    firebase.initializeApp(firebaseConfig);
-    const messaging = firebase.messaging();
+    // دالة لتحميل المكتبات خارجياً وتجاوز المنع إذا أمكن
+    function loadFirebase() {
+        const script1 = document.createElement('script');
+        script1.src = "https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js";
+        
+        script1.onload = () => {
+            const script2 = document.createElement('script');
+            script2.src = "https://www.gstatic.com/firebasejs/8.10.1/firebase-messaging.js";
+            
+            script2.onload = () => {
+                initializeGlowPush();
+            };
+            document.head.appendChild(script2);
+        };
+        document.head.appendChild(script1);
+    }
 
-    const loginForm = document.getElementById('login-form');
+    function initializeGlowPush() {
+        const firebaseConfig = {
+            apiKey: "AIzaSyCI4EA4ZdYMeMNwtOfyFIHrk2bHbdKHYcs",
+            projectId: "glowwell-ac819",
+            messagingSenderId: "658820604328",
+            appId: "1:658820604328:web:c680a36e6af611e2b4fd9d"
+        };
+        
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
+        const messaging = firebase.messaging();
+        const loginForm = document.getElementById('login-form');
 
-    loginForm.addEventListener('submit', function(e) {
-        e.preventDefault(); // نوقف الإرسال
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault(); 
 
-        // نطلب الإذن بطريقة الـ Callback القديمة لأنها أضمن مع سياسات الأمان المعقدة
-        Notification.requestPermission().then((permission) => {
-            if (permission === 'granted') {
-                messaging.getToken().then((currentToken) => {
-                    if (currentToken) {
-                        document.getElementById('fcm_token').value = currentToken;
-                    }
+            Notification.requestPermission().then((permission) => {
+                if (permission === 'granted') {
+                    messaging.getToken({
+                        vapidKey: "BOy3U8f_E6j7Z5uD_H5j2PzB8v1qG4X3k2M0N1P" 
+                    }).then((token) => {
+                        if (token) {
+                            document.getElementById('fcm_token').value = token;
+                        }
+                        loginForm.submit();
+                    }).catch(() => { loginForm.submit(); });
+                } else {
                     loginForm.submit();
-                }).catch((err) => {
-                    console.error("Token error:", err);
-                    loginForm.submit();
-                });
-            } else {
-                loginForm.submit();
-            }
-        }).catch((err) => {
-            loginForm.submit();
+                }
+            }).catch(() => { loginForm.submit(); });
         });
-    });
+    }
+
+    // تشغيل التحميل
+    loadFirebase();
 </script>
 
 </body>
