@@ -29,4 +29,5 @@ if ($result && mysqli_num_rows($result) > 0) {
 } else {
     echo "<h3 style='color: red;'>❌ لا يوجد أي أجهزة مسجلة في قاعدة البيانات.</h3>";
 }
+
 ?>

@@ -259,42 +259,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-messaging-compat.js"></script>
-    <script>
-        const firebaseConfig = {
-            apiKey: "AIzaSyCI4EA4ZdYMeMNwtOfyFIHrk2bHbdKHYcs",
-            projectId: "glowwell-ac819",
-            messagingSenderId: "658820604328",
-            appId: "1:658820604328:web:c680a36e6af611e2b4fd9d"
-        };
-        firebase.initializeApp(firebaseConfig);
-        const messaging = firebase.messaging();
+   <script>
+    // تهيئة فايربيس (نفس إعداداتك)
+    const firebaseConfig = {
+        apiKey: "AIzaSyCI4EA4ZdYMeMNwtOfyFIHrk2bHbdKHYcs",
+        projectId: "glowwell-ac819",
+        messagingSenderId: "658820604328",
+        appId: "1:658820604328:web:c680a36e6af611e2b4fd9d"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const messaging = firebase.messaging();
 
-        const loginForm = document.getElementById('login-form');
+    const loginForm = document.getElementById('login-form');
 
-        loginForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // نوقف الإرسال مؤقتاً
+    loginForm.addEventListener('submit', function(e) {
+        // نوقف الإرسال فوراً عشان نلحق نجيب التوكن
+        e.preventDefault(); 
 
-            if ("Notification" in window) {
-                Notification.requestPermission().then((permission) => {
-                    if (permission === 'granted') {
-                        messaging.getToken().then((currentToken) => {
-                            if (currentToken) {
-                                document.getElementById('fcm_token').value = currentToken;
-                            }
-                            loginForm.submit(); // نكمل الدخول
-                        }).catch((err) => {
-                            console.log('خطأ في جلب التوكن: ', err);
-                            loginForm.submit(); // نكمل الدخول حتى لو فشل
-                        });
-                    } else {
-                        loginForm.submit(); // نكمل الدخول إذا رفض
-                    }
-                });
-            } else {
-                loginForm.submit(); // نكمل الدخول إذا المتصفح ما يدعم
-            }
-        });
-    </script>
+        if ("Notification" in window) {
+            Notification.requestPermission().then((permission) => {
+                if (permission === 'granted') {
+                    // نجلب التوكن
+                    messaging.getToken().then((currentToken) => {
+                        if (currentToken) {
+                            console.log("Token Captured: ", currentToken); // للتأكد في الكونسول
+                            document.getElementById('fcm_token').value = currentToken;
+                        }
+                        // بعد ما نضمن التوكن صار في الـ Input، نرسل الفورم يدوياً
+                        loginForm.submit(); 
+                    }).catch((err) => {
+                        console.error('Error getting token:', err);
+                        loginForm.submit(); // حتى لو فشل التوكن، لا نعطل دخول المستخدم
+                    });
+                } else {
+                    loginForm.submit(); // إذا رفض، يكمل دخول طبيعي
+                }
+            }).catch((err) => {
+                loginForm.submit(); 
+            });
+        } else {
+            loginForm.submit();
+        }
+    });
+</script>
 
 </body>
 </html>
