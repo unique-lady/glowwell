@@ -4,14 +4,12 @@
  */
 require_once 'config.php';
 
-
 if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === "off") {
     $location = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
     header('HTTP/1.1 301 Moved Permanently');
     header('Location: ' . $location);
     exit;
 }
-
 
 // --- نظام الترجمة الاحترافي (بدون جوجل) ---
 if (!isset($_SESSION['lang'])) { $_SESSION['lang'] = 'en'; }
@@ -80,6 +78,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['user_email'] = $user['email'];
                 $_SESSION['role'] = $user['role']; 
+
+                // ==========================================
+                // كود حفظ توكن الإشعارات بعد نجاح تسجيل الدخول
+                // ==========================================
+                if (isset($_POST['fcm_token']) && !empty($_POST['fcm_token'])) {
+                    $token = mysqli_real_escape_string($conn, $_POST['fcm_token']);
+                    $logged_in_user_id = $user['id'];
+                    $sql_token = "INSERT INTO user_devices (user_id, fcm_token, last_updated) 
+                                  VALUES ('$logged_in_user_id', '$token', NOW()) 
+                                  ON DUPLICATE KEY UPDATE fcm_token = '$token', last_updated = NOW()";
+                    mysqli_query($conn, $sql_token);
+                }
+                // ==========================================
 
                 if (empty(trim($user['fullname']))) {
                     header("Location: setup_profile.php");
@@ -156,7 +167,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         <?php endif; ?>
 
-        <form method="POST" class="space-y-6 text-left">
+        <form id="login-form" method="POST" class="space-y-6 text-left">
             <div>
                 <label class="block text-gray-700 font-bold mb-2"><?php echo $L['email_label']; ?></label>
                 <input type="email" name="email" autocomplete="username"
@@ -184,6 +195,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         
             <div class="pt-4 space-y-4">
+                <input type="hidden" name="fcm_token" id="fcm_token" value="">
                 <button type="submit" class="w-full py-4 btn-pink rounded-2xl font-bold text-xl shadow-md active:scale-95 transition-all">
                     <?php echo $L['login_btn']; ?>
                 </button>
@@ -216,12 +228,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </p>
 </div>
 
-
-
-        
     </div>
-    
-
 
     <script>
         lucide.createIcons();
@@ -250,7 +257,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     </script>
     
-  
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-messaging-compat.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCI4EA4ZdYMeMNwtOfyFIHrk2bHbdKHYcs",
+            projectId: "glowwell-ac819",
+            messagingSenderId: "658820604328",
+            appId: "1:658820604328:web:c680a36e6af611e2b4fd9d"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const messaging = firebase.messaging();
+
+        const loginForm = document.getElementById('login-form');
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // نوقف الإرسال مؤقتاً
+
+            if ("Notification" in window) {
+                Notification.requestPermission().then((permission) => {
+                    if (permission === 'granted') {
+                        messaging.getToken().then((currentToken) => {
+                            if (currentToken) {
+                                document.getElementById('fcm_token').value = currentToken;
+                            }
+                            loginForm.submit(); // نكمل الدخول
+                        }).catch((err) => {
+                            console.log('خطأ في جلب التوكن: ', err);
+                            loginForm.submit(); // نكمل الدخول حتى لو فشل
+                        });
+                    } else {
+                        loginForm.submit(); // نكمل الدخول إذا رفض
+                    }
+                });
+            } else {
+                loginForm.submit(); // نكمل الدخول إذا المتصفح ما يدعم
+            }
+        });
+    </script>
 
 </body>
 </html>
