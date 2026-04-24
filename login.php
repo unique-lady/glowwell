@@ -257,50 +257,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     </script>
     
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-messaging-compat.js"></script>
-   <script>
-    // تهيئة فايربيس (نفس إعداداتك)
+   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-messaging-compat.js"></script>
+
+<script>
+    // تهيئة فايربيس
     const firebaseConfig = {
         apiKey: "AIzaSyCI4EA4ZdYMeMNwtOfyFIHrk2bHbdKHYcs",
         projectId: "glowwell-ac819",
         messagingSenderId: "658820604328",
         appId: "1:658820604328:web:c680a36e6af611e2b4fd9d"
     };
-    firebase.initializeApp(firebaseConfig);
+    if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+    }
     const messaging = firebase.messaging();
 
     const loginForm = document.getElementById('login-form');
 
-    loginForm.addEventListener('submit', function(e) {
-        // نوقف الإرسال فوراً عشان نلحق نجيب التوكن
-        e.preventDefault(); 
+    loginForm.onsubmit = async function(e) {
+        e.preventDefault(); // نوقف الإرسال تماماً
 
-        if ("Notification" in window) {
-            Notification.requestPermission().then((permission) => {
-                if (permission === 'granted') {
-                    // نجلب التوكن
-                    messaging.getToken().then((currentToken) => {
-                        if (currentToken) {
-                            console.log("Token Captured: ", currentToken); // للتأكد في الكونسول
-                            document.getElementById('fcm_token').value = currentToken;
-                        }
-                        // بعد ما نضمن التوكن صار في الـ Input، نرسل الفورم يدوياً
-                        loginForm.submit(); 
-                    }).catch((err) => {
-                        console.error('Error getting token:', err);
-                        loginForm.submit(); // حتى لو فشل التوكن، لا نعطل دخول المستخدم
-                    });
-                } else {
-                    loginForm.submit(); // إذا رفض، يكمل دخول طبيعي
+        try {
+            // نطلب الإذن
+            const permission = await Notification.requestPermission();
+            
+            if (permission === 'granted') {
+                // نجلب التوكن وننتظره (await)
+                const token = await messaging.getToken({
+                    vapidKey: "BOy3U8f_E6j7Z5uD_H5j2PzB8v1qG4X3k2M0N1P" // اختياري، إذا كان لديك vapidKey ضعيه هنا
+                });
+
+                if (token) {
+                    document.getElementById('fcm_token').value = token;
                 }
-            }).catch((err) => {
-                loginForm.submit(); 
-            });
-        } else {
+            }
+        } catch (error) {
+            console.error("Firebase Error:", error);
+        } finally {
+            // نرسل الفورم يدوياً سواء نجح التوكن أو فشل عشان ما نعطل المستخدم
             loginForm.submit();
         }
-    });
+    };
 </script>
 
 </body>
