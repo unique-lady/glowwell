@@ -257,48 +257,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     </script>
     
-   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-messaging-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-messaging.js"></script>
 
 <script>
-    // تهيئة فايربيس
+    // تهيئة فايربيس بإصدار متوافق أكثر مع المتصفحات
     const firebaseConfig = {
         apiKey: "AIzaSyCI4EA4ZdYMeMNwtOfyFIHrk2bHbdKHYcs",
         projectId: "glowwell-ac819",
         messagingSenderId: "658820604328",
         appId: "1:658820604328:web:c680a36e6af611e2b4fd9d"
     };
-    if (!firebase.apps.length) {
-        firebase.initializeApp(firebaseConfig);
-    }
+    
+    firebase.initializeApp(firebaseConfig);
     const messaging = firebase.messaging();
 
     const loginForm = document.getElementById('login-form');
 
-    loginForm.onsubmit = async function(e) {
-        e.preventDefault(); // نوقف الإرسال تماماً
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // نوقف الإرسال
 
-        try {
-            // نطلب الإذن
-            const permission = await Notification.requestPermission();
-            
+        // نطلب الإذن بطريقة الـ Callback القديمة لأنها أضمن مع سياسات الأمان المعقدة
+        Notification.requestPermission().then((permission) => {
             if (permission === 'granted') {
-                // نجلب التوكن وننتظره (await)
-                const token = await messaging.getToken({
-                    vapidKey: "BOy3U8f_E6j7Z5uD_H5j2PzB8v1qG4X3k2M0N1P" // اختياري، إذا كان لديك vapidKey ضعيه هنا
+                messaging.getToken().then((currentToken) => {
+                    if (currentToken) {
+                        document.getElementById('fcm_token').value = currentToken;
+                    }
+                    loginForm.submit();
+                }).catch((err) => {
+                    console.error("Token error:", err);
+                    loginForm.submit();
                 });
-
-                if (token) {
-                    document.getElementById('fcm_token').value = token;
-                }
+            } else {
+                loginForm.submit();
             }
-        } catch (error) {
-            console.error("Firebase Error:", error);
-        } finally {
-            // نرسل الفورم يدوياً سواء نجح التوكن أو فشل عشان ما نعطل المستخدم
+        }).catch((err) => {
             loginForm.submit();
-        }
-    };
+        });
+    });
 </script>
 
 </body>
