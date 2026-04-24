@@ -257,10 +257,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     </script>
     
-<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.10.1/firebase-app.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.10.1/firebase-messaging.min.js"></script>
+<script src="fb-app.js"></script>
+<script src="fb-msg.js"></script>
 
 <script>
+    // إعدادات فايربيس الخاصة بمشروعك
     const firebaseConfig = {
         apiKey: "AIzaSyCI4EA4ZdYMeMNwtOfyFIHrk2bHbdKHYcs",
         projectId: "glowwell-ac819",
@@ -268,38 +269,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         appId: "1:658820604328:web:c680a36e6af611e2b4fd9d"
     };
 
-    // محاولة التشغيل مع معالجة الأخطاء
-    try {
-        if (!firebase.apps.length) {
-            firebase.initializeApp(firebaseConfig);
-        }
+    // تشغيل النظام
+    if (typeof firebase !== 'undefined') {
+        firebase.initializeApp(firebaseConfig);
         const messaging = firebase.messaging();
 
         const loginForm = document.getElementById('login-form');
 
         loginForm.onsubmit = async function(e) {
             e.preventDefault(); 
-            console.log("Form submit intercepted...");
-
+            
             try {
+                // طلب إذن الإشعارات
                 const permission = await Notification.requestPermission();
+                
                 if (permission === 'granted') {
+                    // جلب التوكن الفريد لجهازك
                     const token = await messaging.getToken();
                     if (token) {
+                        // وضع التوكن في الحقل المخفي لإرساله للـ PHP
                         document.getElementById('fcm_token').value = token;
-                        console.log("Token generated!");
                     }
                 }
-            } catch (err) {
-                console.warn("Notification error:", err);
+            } catch (error) {
+                console.error("Firebase Local Error:", error);
             } finally {
-                loginForm.submit(); // دخول المستخدم أهم شيء
+                // إرسال الفورم وقاعدة البيانات بتستلم التوكن الآن
+                loginForm.submit();
             }
         };
-    } catch (e) {
-        console.error("Firebase init failed:", e);
-        // في حال فشل التحميل، نترك الفورم يعمل بشكل طبيعي
-        document.getElementById('login-form').onsubmit = null; 
+    } else {
+        console.error("فشل تحميل ملفات الجافا سكريبت المحلية. تأكدي من المسار.");
     }
 </script>
 
