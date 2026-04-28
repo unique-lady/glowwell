@@ -102,6 +102,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html lang="<?php echo $_SESSION['lang']; ?>" dir="<?php echo ($_SESSION['lang'] == 'ar' ? 'rtl' : 'ltr'); ?>">
 <head>
+<link rel="canonical" href="https://glowwell.great-site.net/login.php" />
+
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="4dTnDTgjrojMCWcHOrFIo0KfdwGl_-rFe9niSKmYO3k" />
     <meta name="description" content="موقع GlowWell - رفيقك الأول للتمارين، الوجبات الصحية، وتتبع سعراتك بكل سهولة وتوهج.">
