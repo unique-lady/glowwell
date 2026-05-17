@@ -24,7 +24,7 @@ $check_dinner = mysqli_query($conn, "
     WHERE user_id = $user_id AND meal_type = 'Dinner' AND DATE(created_at) = '$today'
 ");
 
-if (mysqli_num_rows($check_dinner) == 0 && $current_hour >= 19) {
+if (mysqli_num_rows($check_dinner) == 0 && $current_hour >= 8) {
     $dynamic_notifications[] = [
         "title" => $lang['notifications.missing_dinner_title'],
         "desc" => $lang['notifications.missing_dinner_desc'],
@@ -41,7 +41,7 @@ LIMIT 1");
 
 if (mysqli_num_rows($check_workout_q) == 0) {
 
-if ($current_hour >= 16) {
+if ($current_hour >= 6) {
 
 $suggest_q = mysqli_query($conn, "SELECT activity_name FROM activities WHERE user_id = $user_id LIMIT 1");
 $suggest = mysqli_fetch_assoc($suggest_q);
