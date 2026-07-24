@@ -189,3 +189,20 @@ const navDir = document.querySelector('.nav-custom').getAttribute('dir');
     if (saved === 'gold') document.body.classList.add('gold-vip-theme');
 });
 </script>
+<script>
+// كود مخصص لمنع ظهور شريط سفاري - معدل ليعمل من الناف بار
+document.addEventListener("DOMContentLoaded", function() {
+    if (("standalone" in window.navigator) && window.navigator.standalone) {
+        var a = document.getElementsByTagName("a");
+        for (var i = 0; i < a.length; i++) {
+            a[i].addEventListener("click", function(event) {
+                // استثناء الروابط اللي تفتح في صفحة جديدة أو روابط الجافاسكريبت
+                if (this.target !== "_blank" && this.href.indexOf("javascript") === -1) {
+                    event.preventDefault();
+                    window.location = this.href;
+                }
+            }, false);
+        }
+    }
+});
+</script>
