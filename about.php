@@ -108,17 +108,27 @@ $t = $about_tr[$current_lang];
                 <h2 class="text-4xl font-bold text-center text-gray-800 mb-14 italic"><?php echo $t['connect']; ?></h2>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="contact-item">
-                        <div class="text-4xl mb-4">📧</div>
-                        <h4 class="font-bold text-gray-800 text-lg"><?php echo $t['email_us']; ?></h4>
-                        <p class="text-pink-500 font-medium mt-2">glowwell.support@gmail.com</p>
-                    </div>
+                <div class="contact-item">
+    <div class="text-4xl mb-4">📧</div>
+    <h4 class="font-bold text-gray-800 text-lg"><?php echo $t['email_us']; ?></h4>
+    
+    <p class="text-pink-500 font-medium mt-2">
+        <a href="mailto:glowwell.support@gmail.com" class="hover:underline">
+            glowwell.support@gmail.com
+        </a>
+    </p>
+</div>
 
-                    <div class="contact-item">
-                        <div class="text-4xl mb-4">📸</div>
-                        <h4 class="font-bold text-gray-800 text-lg"><?php echo $t['follow_us']; ?></h4>
-                        <p class="text-pink-500 font-medium mt-2">@GlowWell_Official</p>
-                    </div>
+<div class="contact-item">
+    <div class="text-4xl mb-4">📸</div>
+    <h4 class="font-bold text-gray-800 text-lg"><?php echo $t['follow_us']; ?></h4>
+    
+    <p class="text-pink-500 font-medium mt-2">
+        <a href="https://instagram.com/glowwell2026" target="_blank" class="hover:underline">
+            @glowwell2026
+        </a>
+    </p>
+</div>
 
                     <div class="contact-item">
                         <div class="text-4xl mb-4">📞</div>

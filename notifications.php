@@ -24,12 +24,12 @@ $check_dinner = mysqli_query($conn, "
     WHERE user_id = $user_id AND meal_type = 'Dinner' AND DATE(created_at) = '$today'
 ");
 
-if (mysqli_num_rows($check_dinner) == 0 && $current_hour >= 19) {
+if (mysqli_num_rows($check_dinner) == 0 && $current_hour >= 8) {
     $dynamic_notifications[] = [
         "title" => $lang['notifications.missing_dinner_title'],
         "desc" => $lang['notifications.missing_dinner_desc'],
         "icon" => '<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path></svg>',
-        "time" => _n("7:00 PM"),
+        "time" => _n("8:00 AM"),
         "has_toggle" => false
     ];
 }
@@ -41,7 +41,7 @@ LIMIT 1");
 
 if (mysqli_num_rows($check_workout_q) == 0) {
 
-if ($current_hour >= 16) {
+if ($current_hour >= 6) {
 
 $suggest_q = mysqli_query($conn, "SELECT activity_name FROM activities WHERE user_id = $user_id LIMIT 1");
 $suggest = mysqli_fetch_assoc($suggest_q);
@@ -51,7 +51,7 @@ $dynamic_notifications[] = [
 "title" => $lang['notifications.workout_time_title'],
 "desc" => $lang['notifications.workout_time_desc'] . htmlspecialchars($act_name),
 "icon" => '<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>',
-"time" => _n("4:00 PM"),
+"time" => _n("6:00 AM"),
 "has_toggle" => false
 ];
 }
