@@ -1,0 +1,21 @@
+{
+  "name": "GlowWell Health",
+  "short_name": "GlowWell",
+  "description": "Your Smart Companion for Wellness and Fitness",
+  "start_url": "/login.php",
+  "display": "standalone",
+  "background_color": "#f0fdf4",
+  "theme_color": "#ed4b9e",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-large.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

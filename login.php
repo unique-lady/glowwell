@@ -113,6 +113,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- ربط ملف المانيفست -->
+<link rel="manifest" href="/manifest.json">
+
+<!-- إعدادات أبل (iOS) لجعله يبدو كتطبيق حقيقي -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="GlowWell">
+<link rel="apple-touch-icon" href="/icon.png">
+
+<!-- لون شريط المهام في الأندرويد -->
+<meta name="theme-color" content="#ed4b9e">
     <style>
         body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); }
         .logo-font { font-family: 'Outfit', sans-serif; }
